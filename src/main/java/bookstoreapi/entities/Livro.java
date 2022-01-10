@@ -7,13 +7,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 public class Livro implements Serializable {
 
@@ -30,16 +26,4 @@ public class Livro implements Serializable {
     @JoinColumn(name = "categoria_ID")
     private Categoria categoria;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Livro livro = (Livro) o;
-        return id != null && Objects.equals(id, livro.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

@@ -1,9 +1,7 @@
 package bookstoreapi.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,7 +11,6 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 public class Categoria implements Serializable {
 
@@ -25,7 +22,16 @@ public class Categoria implements Serializable {
     private String nome;
     private String descricao;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "categoria")
-    private List<Livro> livro = new ArrayList<>();
+    private List<Livro> livros = new ArrayList<>();
 
+
+    public Categoria(Long Id, String nome, String descricao) {
+        super();
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+
+    }
 }
