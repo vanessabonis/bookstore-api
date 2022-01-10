@@ -1,4 +1,4 @@
-package entities;
+package bookstoreapi.entities;
 
 import lombok.*;
 import org.hibernate.Hibernate;

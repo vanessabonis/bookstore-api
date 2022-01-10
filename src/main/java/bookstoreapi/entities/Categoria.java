@@ -1,4 +1,4 @@
-package entities;
+package bookstoreapi.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
